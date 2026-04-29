@@ -9,8 +9,8 @@ services:
       - 8000:8000
     volumes:
       - ./djangoapp:/djangoapp
-      - ./data/web/static:/data/web/static/
-      - ./data/web/media:/data/web/media/
+      - static_volume:/data/web/static/
+      - media_volume:/data/web/media/
     env_file:
       - ./dotenv_files/.env
     depends_on:
@@ -22,3 +22,7 @@ services:
       - ./data/postgres/data:/var/lib/postgresql/data/
     env_file:
       - ./dotenv_files/.env
+
+volumes:
+  static_volume:
+  media_volume:
